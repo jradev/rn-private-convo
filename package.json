@@ -10,6 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^18.1.0",
+    "@react-native-google-signin/google-signin": "^10.0.1",
     "react": "18.2.0",
     "react-native": "0.71.7",
     "react-native-design-utility": "https://github.com/jradev/react-native-design-utility"
