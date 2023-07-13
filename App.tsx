@@ -27,7 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { WEB_CLIENT_ID, IOS_CLIENT_ID } from '@env';
+import { REACT_APP_WEB_CLIENT_ID, REACT_APP_IOS_CLIENT_ID } from '@env';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -39,12 +39,12 @@ function App(): JSX.Element {
   useEffect(() => {
     GoogleSignin.configure({
       webClientId:
-        WEB_CLIENT_ID,
+        REACT_APP_WEB_CLIENT_ID,
       iosClientId:
-        IOS_CLIENT_ID,
+        REACT_APP_IOS_CLIENT_ID,
       offlineAccess: false,
     });
-    console.log(WEB_CLIENT_ID)
+    console.log(REACT_APP_WEB_CLIENT_ID)
   }, [])
 
   const onSignIn = async () => {
