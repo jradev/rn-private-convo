@@ -28,14 +28,15 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import { REACT_APP_WEB_CLIENT_ID, REACT_APP_IOS_CLIENT_ID } from '@env';
+import Conversation from './src/views/conversation';
+import { UtilityThemeProvider } from 'react-native-design-utility';
+import { theme } from './src/utils/theme';
+import { NavigationContainer } from '@react-navigation/native';
+import Login from './src/views/login';
+import RootNavigation from './src/navigation';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+  
   useEffect(() => {
     GoogleSignin.configure({
       webClientId:
@@ -54,17 +55,11 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-       <Button title='testing' onPress={onSignIn} />
-      </ScrollView>
-    </SafeAreaView>
+    <UtilityThemeProvider theme={theme}>
+      <SafeAreaView style={{flex: 1}}>
+        <RootNavigation />
+      </SafeAreaView>
+    </UtilityThemeProvider>
   );
 }
 
